@@ -13,7 +13,15 @@
       <!-- ■card -->
       <!-- 通常はコンポーネント呼び出ししそう。 -->
       <v-layout wrap>
-        <v-flex v-for="info in infos" :key="info" xs12 sm12 md4 text-center my-5>
+        <v-flex
+          v-for="info in infos"
+          :key="info"
+          xs12
+          sm12
+          md4
+          text-center
+          my-5
+        >
           <v-card min-width="500" class="mx-auto">
             <v-card-title>title{{ info.title }}</v-card-title>
             <v-card-text>contents{{ info.descriptions }}.</v-card-text>
@@ -31,7 +39,9 @@
       <v-expansion-panels>
         <v-expansion-panel v-for="(item, i) in 5" :key="i">
           <v-expansion-panel-header>- expansion -</v-expansion-panel-header>
-          <v-expansion-panel-content>content. brbrbrbrbrbrbrbrbrbr</v-expansion-panel-content>
+          <v-expansion-panel-content
+            >content. brbrbrbrbrbrbrbrbrbr</v-expansion-panel-content
+          >
         </v-expansion-panel>
       </v-expansion-panels>
       <!--  -->
