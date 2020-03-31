@@ -4,34 +4,59 @@
     <!-- ■carousel -->
     <v-carousel>
       <!-- cycle：ループ -->
+      <!-- gradient: 何か重要なお知らせ等を表示したり。 -->
       <v-carousel-item
-        v-for="(color, i) in colors"
-        :key="color"
+        v-for="item in items"
+        :key="item"
         cycle="true"
         touch="left"
-      >
-        <v-sheet :color="color" height="100%" tile>
+        :src="item.src"
+        :gradient="item.gradient"
+        :href="item.link"
+        ><v-sheet height="100%" style="background-color: transparent;">
+          <v-row class="fill-height" align="center" justify="center">
+            <div class="display-3">{{ item.alertMessage }}</div>
+          </v-row>
+        </v-sheet>
+        <!-- <v-sheet :color="color" height="100%" tile>
           <v-row classs="fill-height" align="center" justify="center">
             <div class="display-3">slide: {{ i + 1 }}</div>
           </v-row>
-        </v-sheet>
+        </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
     <!--  -->
     <!-- ■card -->
     <!-- 画像 -->
-    <v-layout v-for="photo in photos" :key="photo" align-center wrap>
-      <v-flex xs4 sm4 md4 lg4 xl4 text-center mx-5 my-5 wrap
-        ><v-card min-width="150" class="mx-auto ma-2" outlined raised
-          ><v-card-title class="headline">
+    <!-- <v-container grid-list-lg> ：箱状のものに詰めることができる。 -->
+    <v-container grid-list-lg>
+      <v-layout row wrap class="meal-plans">
+        <v-flex v-for="photo in photos" :key="photo" xs4 sm4 md4
+          ><v-card outlined raised :href="photo.link">
+            <!-- <v-card-title class="headline">
             {{ photo.title }}
           </v-card-title>
           <v-card-text>
-            <!-- {{ photo.text }} -->
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
+            {{ photo.text }}
+          </v-card-text> -->
+            <v-responsive>
+              <v-img
+                src="https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg"
+                height="200px"
+              >
+                <v-container fill-height fluid>
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <span class="headline white--text">hoge</span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
+            </v-responsive>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <!--  -->
     <!-- ■card -->
     <v-flex
@@ -127,7 +152,33 @@ export default {
     // VuetifyLogo
   },
   data: () => ({
-    colors: ['primary', 'secondary', 'yellow darken-2', 'red', 'orange'],
+    // colors: ['primary', 'secondary', 'yellow darken-2', 'red', 'orange'],
+    items: [
+      {
+        src:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        gradient: 'to top right, rgba(0,0,0,.5), rgba(0,0,0,.8)',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        alertMessage: 'SoldOut'
+      },
+      {
+        src:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        gradient: '',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        alertMessage: ''
+      },
+      {
+        src:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        gradient: '',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        alertMessage: ''
+      }
+    ],
     infos: [
       {
         title: '重要なお知らせ',
@@ -140,19 +191,29 @@ export default {
     ],
     photos: [
       {
-        title: 'http'
+        title: 'http',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
       },
       {
-        title: 'http'
+        title: 'http',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
       },
       {
-        title: 'http'
+        title: 'http',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
       },
       {
-        title: 'http'
+        title: 'http',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
       },
       {
-        title: 'http'
+        title: 'http',
+        link:
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
       }
     ]
   })
