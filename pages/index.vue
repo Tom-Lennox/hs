@@ -160,7 +160,7 @@ export default {
         gradient: 'to top right, rgba(0,0,0,.5), rgba(0,0,0,.8)',
         link:
           'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
-        alertMessage: 'SoldOut'
+        alertMessage: '- Sold Out -'
       },
       {
         src:

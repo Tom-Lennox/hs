@@ -8,35 +8,46 @@
       <!--  -->
       <v-img
         src="https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg"
-        gradient="to top right, rgba(0,0,0,.5), rgba(0,0,0,.8)"
+        gradient="to bottom right, rgba(0,0,0,.1), rgba(255,255,255,.9)"
       ></v-img>
       <!-- ■card -->
       <!-- 通常はコンポーネント呼び出ししそう。 -->
       <v-layout wrap>
-        <v-flex
-          v-for="info in infos"
-          :key="info"
-          xs12
-          sm12
-          md4
-          text-center
-          my-5
-        >
+        <v-flex xs12 sm12 md12 text-center my-5>
           <v-card min-width="500" class="mx-auto">
-            <v-card-title>title{{ info.title }}</v-card-title>
-            <v-card-text>contents{{ info.descriptions }}.</v-card-text>
+            <v-card-title>{{ properties.name }}</v-card-title>
+            <v-card-text>{{ properties.price }}</v-card-text>
             <v-card-actions>
               <!-- ここでv-btn textはUI悪い。 -->
               <!-- <v-btn text>more{{ n }}</v-btn> -->
             </v-card-actions>
           </v-card>
         </v-flex>
+        <v-flex
+          v-for="info in infos"
+          :key="info"
+          xs12
+          sm12
+          md12
+          text-center
+          class="my-5"
+        >
+          <v-card min-width="500" class="mx-auto">
+            <v-card-title>{{ info.title }}</v-card-title>
+            <v-card-text>{{ info.description }}</v-card-text>
+            <v-card-actions>
+              <!-- ここでv-btn textはUI悪い。 -->
+              <!-- <v-btn text>more{{ n }}</v-btn> -->
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+        <v-btn block="true" color="rgba(255, 0, 0, 0.5)">カートに入れる</v-btn>
       </v-layout>
       <!--  -->
       <!--  -->
       <!-- ■expansions -->
       <!-- これもコンポーネントで使用しそう。 -->
-      <v-expansion-panels>
+      <v-expansion-panels class="py-5">
         <v-expansion-panel v-for="(item, i) in 5" :key="i">
           <v-expansion-panel-header>- expansion -</v-expansion-panel-header>
           <v-expansion-panel-content
@@ -88,18 +99,26 @@ export default {
       infos: [
         {
           title: 'こだわり',
-          description: '肉がなんたら'
+          description:
+            '肉がなんたら、とってもジューシーな何かをなんとなく特別な材料でなんとか。'
         },
         {
           title: 'アレルゲン情報',
-          description: '小麦粉、大豆'
+          description: '小麦粉、大豆、牛肉'
         },
         {
           title: 'other',
           description: 'etc'
         }
-      ]
+      ],
+      properties: {
+        name: 'なんちゃらバーガー',
+        price: '2400'
+      }
     }
   }
+  // filters: {
+  //   putConnma: function()
+  // }
 }
 </script>
