@@ -16,7 +16,7 @@
         <v-flex xs12 sm12 md12 text-center my-5>
           <v-card min-width="500" class="mx-auto">
             <v-card-title>{{ properties.name }}</v-card-title>
-            <v-card-text>{{ properties.price }}</v-card-text>
+            <v-card-text>¥{{ properties.price | putConnma }}.-</v-card-text>
             <v-card-actions>
               <!-- ここでv-btn textはUI悪い。 -->
               <!-- <v-btn text>more{{ n }}</v-btn> -->
@@ -69,6 +69,13 @@ export default {
   components: {
     calender
   },
+  filters: {
+    putConnma(val) {
+      if (val) {
+        return Number(val).toLocaleString()
+      }
+    }
+  },
   data() {
     return {
       items: [
@@ -111,14 +118,18 @@ export default {
           description: 'etc'
         }
       ],
-      properties: {
-        name: 'なんちゃらバーガー',
-        price: '2400'
-      }
+      properties: [
+        {
+          name: 'なんちゃらバーガー',
+          price: '2400'
+        }
+      ]
     }
   }
-  // filters: {
-  //   putConnma: function()
+  // jsonから。
+  // created() {
+  //   const vm = this
+  //   axios.get('./')
   // }
 }
 </script>
