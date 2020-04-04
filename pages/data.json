@@ -1,0 +1,4 @@
+properties: [{
+        name: 'なんちゃらバーガー',
+        price: '2400'
+      }]

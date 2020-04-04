@@ -118,12 +118,10 @@ export default {
           description: 'etc'
         }
       ],
-      properties: [
-        {
-          name: 'なんちゃらバーガー',
-          price: '2400'
-        }
-      ]
+      properties: {
+        name: 'なんちゃらバーガー',
+        price: '2400'
+      }
     }
   }
   // jsonから。
