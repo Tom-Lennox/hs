@@ -6,7 +6,7 @@
       <!-- cycle：ループ -->
       <!-- gradient: 何か重要なお知らせ等を表示したり。 -->
       <v-carousel-item
-        v-for="item in items"
+        v-for="item in CarouselItems"
         :key="item"
         cycle="true"
         touch="left"
@@ -31,29 +31,37 @@
     <!-- <v-container grid-list-lg> ：箱状のものに詰めることができる。 -->
     <v-container grid-list-lg>
       <v-layout row wrap class="meal-plans">
-        <v-flex v-for="photo in photos" :key="photo" xs4 sm4 md4
-          ><v-card outlined raised :href="photo.link">
-            <!-- <v-card-title class="headline">
+        <v-flex v-for="photo in CardPhotos" :key="photo" xs4 sm4 md4 lg4 xl4
+          ><v-hover v-slot:default="{ hover }"
+            ><v-card
+              outlined
+              raised
+              :href="photo.link"
+              :to="photo.to"
+              :elevation="hover ? 12 : 2"
+            >
+              <!-- <v-card-title class="headline">
             {{ photo.title }}
           </v-card-title>
           <v-card-text>
             {{ photo.text }}
           </v-card-text> -->
-            <v-responsive>
-              <v-img
-                src="https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg"
-                height="200px"
-              >
-                <v-container fill-height fluid>
-                  <v-layout fill-height>
-                    <v-flex xs12 align-end flexbox>
-                      <span class="headline white--text">hoge</span>
-                    </v-flex>
-                  </v-layout>
-                </v-container>
-              </v-img>
-            </v-responsive>
-          </v-card>
+              <v-responsive>
+                <v-img
+                  src="https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg"
+                  height="200px"
+                >
+                  <v-container fill-height fluid>
+                    <v-layout fill-height>
+                      <v-flex xs12 align-end flexbox>
+                        <span class="headline white--text">hoge</span>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-img>
+              </v-responsive>
+            </v-card>
+          </v-hover>
         </v-flex>
       </v-layout>
     </v-container>
@@ -133,7 +141,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
+          <v-btn color="primary" nuxt to="/hoge">
             Continue
           </v-btn>
         </v-card-actions>
@@ -153,7 +161,7 @@ export default {
   },
   data: () => ({
     // colors: ['primary', 'secondary', 'yellow darken-2', 'red', 'orange'],
-    items: [
+    CarouselItems: [
       {
         src:
           'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
@@ -189,26 +197,30 @@ export default {
         text: 'text'
       }
     ],
-    photos: [
+    CardPhotos: [
       {
         title: 'http',
         link:
-          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        to: '/hoge'
       },
       {
         title: 'http',
         link:
-          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        to: '/hoge'
       },
       {
         title: 'http',
         link:
-          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        to: '/hoge'
       },
       {
         title: 'http',
         link:
-          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg'
+          'https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_1280.jpg',
+        to: '/hoge'
       },
       {
         title: 'http',
